@@ -10,10 +10,11 @@
 </p>
 
 ## Installation
+### Chrome - (Any chromium based browsers like brave,edge etc.)
 * Download the zip file for the project and extract it. [Download](https://github.com/athuld/stremio-google-search-extension/archive/refs/heads/main.zip)
 * Goto Chrome and Click on customise at top right corner > Extension > Manage Extensions
 * Enable Developer Mode
-* Click on Load unpacked and select the extracted folder
+* Click on Load unpacked and select the **chrome** folder inside the extracted folder
 * You should now see the extension installed. Browse and Enjoy :)
 
 ## Video Tutorial
