@@ -1,11 +1,14 @@
 {
   "manifest_version": 2,
   "name": "Stremio Google Search",
-  "version": "1.0",
+  "version": "1.1.1",
   "description": "Adds Stremio to the watch movie/series button in google search",
   "icons": {
     "48": "images/icon_48x48.png",
     "96": "images/icon_96x96.png"
+  },
+  "browser_specific_settings": {
+    "gecko": { "id": "{abaf5ac1-2de7-47cb-bb39-142c1f709b19}" }
   },
   "content_scripts": [
     {

@@ -16,6 +16,7 @@ const addStremioButtonToGoogle = () => {
   let reviewContainer = null;
   let isMovie = true;
   let contentType = "movie";
+  let imdbCode = null;
 
   if (seriesOptions) {
     watchOption = seriesOptions;
@@ -27,20 +28,32 @@ const addStremioButtonToGoogle = () => {
     reviewContainer = filmReviewContainer;
   }
 
-  if (watchOption === null || reviewContainer === null) {
+  if (watchOption === null) {
     return;
   }
 
-  let imdbEle = reviewContainer.querySelector(
-    "a[href*='https://www.imdb.com/']",
-  );
+  if (reviewContainer === null) {
+    /* Add a fallback to imdb code as some of the other languages have this reviewContainer */
+    let imdbLink = document.querySelector(
+      "a[href*='https://www.imdb.com/']",
+    )?.href;
+    imdbCode = imdbLink?.match(/title\/(tt\d+)/)?.[1];
+  } else {
+    let imdbEle = reviewContainer.querySelector(
+      "a[href*='https://www.imdb.com/']",
+    );
 
-  if (!imdbEle) {
-    return;
+    if (!imdbEle) {
+      return;
+    }
+
+    let imdbParts = imdbEle.href.split("/");
+    imdbCode = imdbParts.pop() || imdbParts.pop();
   }
 
-  let imdbParts = imdbEle.href.split("/");
-  let imdbCode = imdbParts.pop() || imdbParts.pop();
+  if (imdbCode === null) {
+    return;
+  }
 
   let childCount =
     watchOption.firstElementChild.firstElementChild.childElementCount;
@@ -56,7 +69,7 @@ const addStremioButtonToGoogle = () => {
     );
   }
 
-  watchNowEle.innerHTML = `<a href='stremio:///detail/${contentType}/${imdbCode}'>
+  watchNowEle.innerHTML = `<a class="stremio-cta__href" href='stremio:///detail/${contentType}/${imdbCode}'>
         <div class="streamio-cta__container">
           <img style='width: 40px;height: 40px;' src='https://www.stremio.com/website/stremio-logo-small.png'/>
           <div>Stremio</div>
@@ -65,4 +78,4 @@ const addStremioButtonToGoogle = () => {
       </a>`;
 };
 
-addStremioButtonToGoogle()
+addStremioButtonToGoogle();
