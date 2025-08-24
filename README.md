@@ -11,15 +11,29 @@
 
 ## Installation
 ### Chrome - (Any chromium based browsers like brave,edge etc.)
-* Download the zip file for the project and extract it. [Download](https://github.com/athuld/stremio-google-search-extension/archive/refs/heads/main.zip)
 * Goto Chrome and Click on customise at top right corner > Extension > Manage Extensions
 * Enable Developer Mode
+#### Method 1 - (Recommended)
+* Download the **chrome-stremio-search.crx** file from the [Releases Tab](https://github.com/athuld/stremio-google-search-extension/releases/tag/latest)
+* Drag and drop the crx file to the manage extensions window
+* Click on add extension and click on trust extension on the extension review option that comes up (look at video if confused)
+#### Method 2
+* Download the zip file for the project and extract it. [Download](https://github.com/athuld/stremio-google-search-extension/archive/refs/heads/main.zip)
 * Click on Load unpacked and select the **chrome** folder inside the extracted folder
 * You should now see the extension installed. Browse and Enjoy :)
+### Firefox
+* Download the **firefox-stremio-search.xpi** file from the [Releases Tab](https://github.com/athuld/stremio-google-search-extension/releases/tag/latest) 
+* Goto firefox Extensions > Manage Extensions > Click on Gear Icon at the top right > Install Add-on From File.. 
+* Select the **firefox-stremio-search.xpi** 
+* Click on Add and the Add-on should be installed now. Browse and Enjoy :)
 
 ## Video Tutorial
-
+### Chrome Method 1
+![](assets/stremio-search-crx.gif)
+### Chrome Method 2
 ![](assets/stremio-seach-extension.gif)
+### Firefox
+![](assets/stremio-search-xpi.gif)
 
 ## Screenshot
 ![](assets/pic-selected-250823-1711-34.png)
