@@ -32,23 +32,23 @@ const addStremioButtonToGoogle = () => {
     return;
   }
 
-  if (reviewContainer === null) {
-    /* Add a fallback to imdb code as some of the other languages have this reviewContainer */
-    let imdbLink = document.querySelector(
-      "a[href*='https://www.imdb.com/']",
-    )?.href;
-    imdbCode = imdbLink?.match(/title\/(tt\d+)/)?.[1];
-  } else {
+  if (reviewContainer != null) {
     let imdbEle = reviewContainer.querySelector(
       "a[href*='https://www.imdb.com/']",
     );
 
-    if (!imdbEle) {
-      return;
+    if (imdbEle) {
+      let imdbParts = imdbEle.href.split("/");
+      imdbCode = imdbParts.pop() || imdbParts.pop();
     }
+  }
 
-    let imdbParts = imdbEle.href.split("/");
-    imdbCode = imdbParts.pop() || imdbParts.pop();
+  if (imdbCode === null) {
+    /* Add a fallback to imdb code as some of the other languages doesn't habe imdb in the reviewContainer */
+    let imdbLink = document.querySelector(
+      "a[href*='https://www.imdb.com/']",
+    )?.href;
+    imdbCode = imdbLink?.match(/title\/(tt\d+)/)?.[1];
   }
 
   if (imdbCode === null) {
